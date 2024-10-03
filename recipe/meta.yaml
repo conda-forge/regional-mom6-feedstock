@@ -1,5 +1,5 @@
 {% set name = "regional-mom6" %}
-{% set version = "0.6.1" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/regional_mom6-{{ version }}.tar.gz
-  sha256: 06401b683df54ef8250793f89c16168b8a664b896654994344953dd7c6849dca
+  sha256: 8bdbdd72d8923080c45376bafc1dab729da408ef5d3e63cb3405abf91c8b2d74
 
 build:
   noarch: python
