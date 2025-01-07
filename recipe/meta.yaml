@@ -6,22 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/regional_mom6-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/regional_mom6-{{ version }}.tar.gz
   sha256: 06401b683df54ef8250793f89c16168b8a664b896654994344953dd7c6849dca
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools
     - setuptools-scm
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - bottleneck
     - dask-core
     - distributed
@@ -41,6 +41,7 @@ test:
     - tests
   requires:
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://github.com/COSIMA/regional-mom6
