@@ -1,5 +1,5 @@
 {% set name = "regional-mom6" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/regional_mom6-{{ version }}.tar.gz
-  sha256: 54880bbd4ffd7de7e4b38de5e778a022ac75ccd37ef9f88f22f242f178044bcf
+  sha256: 56c32abd8ae256dd478517e08aae6da4af06e457808f3707244e78aa09123112
 
 build:
   noarch: python
@@ -23,14 +23,18 @@ requirements:
   run:
     - python >={{ python_min }}
     - bottleneck
+    - copernicusmarine >=2.0.0,<2.1.0
     - dask-core
     - distributed
-    - f90nml
+    - f90nml >=1.4.1
+    - mom6_forge >=0.3.0,<0.4.0
     - netcdf4
-    - numpy >=1.17.0
+    - numpy
+    - pint-xarray
+    - ruamel.yaml
     - scipy >=1.2.0
     - xarray
-    - xesmf >=0.8
+    - xesmf
 
 test:
   imports:
